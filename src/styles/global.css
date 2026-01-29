@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* Dark Theme (default) */
+:root,
+[data-theme="dark"] {
+    --bg-main: #09090b;
+    --bg-secondary: #18181b;
+    --bg-glass: rgba(24, 24, 27, 0.6);
+    --bg-card: rgba(24, 24, 27, 0.8);
+    --bg-hover: rgba(255, 255, 255, 0.05);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.1);
+
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+
+    --accent-primary: #8b5cf6;
+    --accent-secondary: #ec4899;
+    --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --btn-primary-bg: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    --btn-primary-text: #ffffff;
+
+    --chart-bg: #18181b;
+    --chart-border: #3f3f46;
+
+    --scrollbar-thumb: #27272a;
+    --scrollbar-hover: #3f3f46;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.15);
+
+    --font-sans: 'Outfit', system-ui, sans-serif;
+}
+
+/* Light Theme - Beige & Golden Brown */
+[data-theme="light"] {
+    --bg-main: #faf7f2;
+    --bg-secondary: #f5efe6;
+    --bg-glass: rgba(255, 252, 247, 0.85);
+    --bg-card: rgba(255, 252, 247, 0.95);
+    --bg-hover: rgba(139, 90, 43, 0.08);
+    --border-glass: rgba(139, 90, 43, 0.12);
+    --border-light: rgba(139, 90, 43, 0.15);
+
+    --text-primary: #2d1f14;
+    --text-secondary: #6b5344;
+    --text-muted: #a08b7a;
+
+    --accent-primary: #b8860b;
+    --accent-secondary: #cd853f;
+    --accent-gradient: linear-gradient(135deg, #b8860b 0%, #cd853f 100%);
+
+    --success: #059669;
+    --warning: #d97706;
+    --danger: #dc2626;
+
+    --btn-primary-bg: linear-gradient(135deg, #b8860b 0%, #cd853f 100%);
+    --btn-primary-text: #ffffff;
+
+    --chart-bg: #f5efe6;
+    --chart-border: #d4c4a8;
+
+    --scrollbar-thumb: #d4c4a8;
+    --scrollbar-hover: #b8a88c;
+
+    --shadow-sm: 0 1px 2px 0 rgb(139 90 43 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(139 90 43 / 0.08), 0 2px 4px -2px rgb(139 90 43 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(139 90 43 / 0.1), 0 4px 6px -4px rgb(139 90 43 / 0.05);
+    --shadow-glow: 0 0 20px rgba(184, 134, 11, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-hover);
+}
+
+.glass-panel {
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    box-shadow: var(--shadow-lg);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.title-gradient {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Button styles */
+.btn-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border: none;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Theme transition for all elements */
+*,
+*::before,
+*::after {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Select/Dropdown Styling */
+select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+select option {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 8px;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+    background-color: var(--bg-hover);
+}
+
+/* Dark theme specific dropdown styling */
+[data-theme="dark"] select,
+[data-theme="dark"] select option {
+    background-color: #18181b;
+    color: #fafafa;
+}
+
+[data-theme="dark"] select option:checked {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    color: white;
+}
+
+/* Light theme specific dropdown styling */
+[data-theme="light"] select,
+[data-theme="light"] select option {
+    background-color: #f5efe6;
+    color: #2d1f14;
+}
+
+[data-theme="light"] select option:checked {
+    background: linear-gradient(135deg, #b8860b 0%, #cd853f 100%);
+    color: white;
+}
+
+/* Input styling for time inputs */
+input[type="time"] {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    color-scheme: dark;
+}
+
+[data-theme="light"] input[type="time"] {
+    color-scheme: light;
+}
